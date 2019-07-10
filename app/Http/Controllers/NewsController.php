@@ -17,7 +17,13 @@ class NewsController extends Controller
     }
 
     function postCreate(Request $request) {
-        dd($request->title);
+        $news = new News();
+        $news->title = $request->title;
+        $news->content = $request->context;
+        $news->startDatetime = $request->start;
+        $news->expiredDatetime = $request->expired;
+        $news->save();
+        return redirect('/home/index');
     }
 
     function edit($id) {
