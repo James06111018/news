@@ -42,6 +42,8 @@ class NewsController extends Controller
     }
 
     function delete($id) {
-        return 'delete['.$id.']';
+        $news = News::find($id);
+        $news->delete();
+        return redirect('/home/index');
     }
 }
