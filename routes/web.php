@@ -14,6 +14,7 @@
 Route::get('/', 'NewsController@index');
 Route::get('/home/index', 'NewsController@index');
 Route::get('/news/create', 'NewsController@create');
+Route::post('/news', 'NewsController@postCreate');
 Route::get('/news/{id}/edit', 'NewsController@edit');
 Route::post('/news/{id}', 'NewsController@postEdit');
-Route::delete('news/{id}', 'NewsController@delete');
+Route::delete('/news/{id}', 'NewsController@delete');

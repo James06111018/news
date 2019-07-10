@@ -13,7 +13,11 @@ class NewsController extends Controller
     }
 
     function create() {
-        return 'create';
+        return view('news.create');
+    }
+
+    function postCreate(Request $request) {
+        dd($request->title);
     }
 
     function edit($id) {
