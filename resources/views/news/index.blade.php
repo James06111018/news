@@ -30,7 +30,7 @@
                 <td>{{$news->expiredDatetime}} </td>
                 <td>
                         <span class="pull-right">
-                            <form method="post" action="/employees/{{$news->newsId}}"> 
+                            <form method="post" action="/news/{{$news->newsId}}"> 
                                 <a href="/news/{{$news->newsId}}/edit" class="btn btn-xs btn-info"><span class="glyphicon glyphicon-pencil"></span> 修改</a> | 
                                 @csrf
                                 @method('DELETE')

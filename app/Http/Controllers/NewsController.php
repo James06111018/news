@@ -11,4 +11,20 @@ class NewsController extends Controller
         $newsList = News::all();
         return view('news.index', compact('newsList'));
     }
+
+    function create() {
+        return 'create';
+    }
+
+    function edit($id) {
+        return 'edit['.$id.']';
+    }
+
+    function postEdit($id) {
+        return 'postEdit['.$id.']';
+    }
+
+    function delete($id) {
+        return 'delete['.$id.']';
+    }
 }
