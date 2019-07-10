@@ -27,11 +27,18 @@ class NewsController extends Controller
     }
 
     function edit($id) {
-        return 'edit['.$id.']';
+        $news = News::find($id);
+        return view('news.edit', compact('news'));
     }
 
-    function postEdit($id) {
-        return 'postEdit['.$id.']';
+    function postEdit(Request $request, $id) {
+        $news = News::find($id);
+        $news->title = $request->title;
+        $news->content = $request->context;
+        $news->startDatetime = $request->start;
+        $news->expiredDatetime = $request->expired;
+        $news->save();
+        return redirect('/home/index');
     }
 
     function delete($id) {
