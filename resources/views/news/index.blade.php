@@ -30,18 +30,22 @@
                 <td>{{$news->expiredDatetime}} </td>
                 <td>
                         <span class="pull-right">
-                            <form method="post" action="/news/{{$news->newsId}}"> 
+                            <form class='delete' method="post" action="/news/{{$news->newsId}}"> 
                                 <a href="/news/{{$news->newsId}}/edit" class="btn btn-xs btn-info"><span class="glyphicon glyphicon-pencil"></span> 修改</a> | 
                                 @csrf
                                 @method('DELETE')
                                 <button type="submit" class="btn btn-xs btn-danger"><span class="glyphicon glyphicon-remove"></span> 刪除</button>
                             </form>
+                            
                         </span>
                     </td>
             </tr>
         @endforeach
-      
-      
+        <script>
+            $(".delete").on("submit", function(){
+                return confirm("Are you sure?");
+            });
+        </script>
     </tbody>
   </table>
 </div>
