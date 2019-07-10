@@ -16,7 +16,7 @@ class NewsController extends Controller
         return view('news.create');
     }
 
-    function postCreate(Request $request) {
+    function store(Request $request) {
         $news = new News();
         $news->title = $request->title;
         $news->content = $request->context;
@@ -31,7 +31,7 @@ class NewsController extends Controller
         return view('news.edit', compact('news'));
     }
 
-    function postEdit(Request $request, $id) {
+    function update(Request $request, $id) {
         $news = News::find($id);
         $news->title = $request->title;
         $news->content = $request->context;
@@ -41,7 +41,7 @@ class NewsController extends Controller
         return redirect('/home/index');
     }
 
-    function delete($id) {
+    function destroy ($id) {
         $news = News::find($id);
         $news->delete();
         return redirect('/home/index');
